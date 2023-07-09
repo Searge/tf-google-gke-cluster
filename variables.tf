@@ -8,6 +8,6 @@ variable "GOOGLE_PROJECT" {
   description = "The ID of the Google Cloud project where the GKE cluster will be created."
 }
 variable "GKE_NUM_NODES" {
-  type        = "number"
+  type        = number
   description = "The number of nodes to create in the GKE cluster."
 }
