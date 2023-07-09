@@ -1,6 +1,3 @@
-The contents of the file tf-google-gke-cluster/README.md are:
-
-```
 # tf-google-gke-cluster
 
 This repository contains Terraform code for creating a GKE cluster on Google Cloud Platform.
@@ -22,4 +19,3 @@ This repository contains Terraform code for creating a GKE cluster on Google Clo
 13. Make sure to properly control and monitor access to your Terraform state to ensure the security and reliability of your infrastructure.
 
 For more information on using Terraform with Google Cloud Platform, see the [official documentation](https://cloud.google.com/community/tutorials/getting-started-on-gcp-with-terraform).
-```
