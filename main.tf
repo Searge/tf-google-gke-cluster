@@ -1,9 +1,12 @@
-provider "google" {
-  # Configuration options
-  project = var.GOOGLE_PROJECT
-  region  = var.GOOGLE_REGION
-}
-
+# This file defines a Google Kubernetes Engine (GKE) cluster and node pool, and sets up authentication for the cluster.
+# Resources:
+# - google_container_cluster.this: Defines the GKE cluster.
+# - google_container_node_pool.this: Defines the node pool for the GKE cluster.
+# - module.gke_auth: Sets up authentication for the GKE cluster.
+# The GKE cluster is created with a single node, and the default node pool is removed.
+# The node pool is created with a specified number of nodes and machine type.
+# Authentication is set up using the terraform-google-modules/kubernetes-engine/google//modules/auth module.
+# Note: This code assumes that the necessary Google Cloud Platform (GCP) credentials are set up correctly
 resource "google_container_cluster" "this" {
   name     = var.GKE_CLUSTER_NAME
   location = var.GOOGLE_REGION
@@ -49,9 +52,9 @@ resource "local_file" "kubeconfig" {
   filename        = "${path.module}/kubeconfig"
   file_permission = "0400"
 }
-module "gke_cluster" {
-  source         = "github.com/Searge/tf-google-gke-cluster"
-  GOOGLE_PROJECT = var.GOOGLE_PROJECT
-  GOOGLE_REGION  = var.GOOGLE_REGION
-  GKE_NUM_NODES  = 2
-}
+# module "gke_cluster" {
+#   source         = "github.com/Searge/tf-google-gke-cluster"
+#   GOOGLE_PROJECT = var.GOOGLE_PROJECT
+#   GOOGLE_REGION  = var.GOOGLE_REGION
+#   GKE_NUM_NODES  = 2
+# }
